@@ -40,7 +40,8 @@ module.exports = {
 		path:  path.join(__dirname, "/dist"),
 
 		filename:  "[name].[fullhash].js",
-
+		
+		clean: true
 	},
 
 	devtool:  "inline-source-map",
@@ -132,11 +133,11 @@ npm install --save-dev style-loader css-loader typescript ts-loader
 
 		"outDir": "./dist/",
 
-		"module": "es6",
+		"module": "es2020",
 
 		"target": "es5",
 
-		"jsx": "react",
+		"jsx": "react-jsx",
 
 		"allowJs": true,
 
@@ -211,6 +212,72 @@ ReactDOM.render(<App  />, document.getElementById("root"));
 	"start:dev": "webpack-dev-server --mode development --hot",
 	"build": "webpack --mode production"
 },
+```
+11. Init eslint
+```
+npm init @esling/config
+```
+12. Setup rules for eslint in **.eslintrc.json**
+```
+{
+
+	"env": {
+
+		"browser": true,
+
+		"es2021": true
+
+	},
+
+	"extends": [
+
+		"eslint:recommended",
+
+		"plugin:react/recommended",
+
+		"plugin:@typescript-eslint/recommended"
+
+	],
+
+	"overrides": [],
+
+	"parser": "@typescript-eslint/parser",
+
+	"parserOptions": {
+
+		"ecmaVersion": "latest",
+
+		"sourceType": "module"
+
+	},
+
+	"plugins": ["react", "@typescript-eslint"],
+
+	"rules": {
+
+		"@typescript-eslint/no-explicit-any": "warn",
+
+		"newline-before-return": "warn",
+
+		"semi": "warn",
+
+		"jsx-quotes": ["warn", "prefer-double"],
+
+		"quotes": ["warn", "double"],
+
+		"react/jsx-key": "warn",
+
+		"react/react-in-jsx-scope": "off"
+
+	}
+
+}
+```
+13. Add **.eslintignore** file
+```
+webpack.config.js
+dist/*
+node_modules
 ```
 
 
