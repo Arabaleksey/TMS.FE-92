@@ -2,9 +2,7 @@
     
 1.  Initialize a new Node.js project by running the following command in the terminal:
 
-   ```
-   npm init
-   ``` 
+   ```npm init``` 
     
 2.  Install the required dependencies by running the following command in the terminal:
 
