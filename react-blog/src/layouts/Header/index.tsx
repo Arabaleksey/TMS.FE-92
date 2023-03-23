@@ -1,12 +1,13 @@
 import { Menu } from "@mui/icons-material";
 import { useRef, useState } from "react";
 import { SideMenu } from "./SideMenu";
-import { StyledHeader } from "./styles";
+import { StyledHeader, StyledMenuBlock } from "./styles";
 import { CSSTransition } from "react-transition-group";
 import { useOutsideClick } from "../../hooks/useOutsideClick";
 import { Persona } from "./Persona";
 import { useSelector } from "react-redux";
 import { userSelector } from "../../store/userSlice/selectors";
+import { Search } from "./Search";
 
 export const Header = () => {
   const user = useSelector(userSelector);
@@ -34,16 +35,18 @@ export const Header = () => {
       >
         <SideMenu ref={sideMenuRef} closeMenu={toggleMenuOpen} />
       </CSSTransition>
-      <div>
+      <StyledMenuBlock>
         <Menu
           onClick={toggleMenuOpen}
           sx={{
             cursor: "pointer",
           }}
         />
+      </StyledMenuBlock>
+      <Search />
+      <div>
+        <Persona name={user.name} />
       </div>
-      <div></div>
-      <div>{user.isAuth && <Persona name={user.name} />}</div>
     </StyledHeader>
   );
 };

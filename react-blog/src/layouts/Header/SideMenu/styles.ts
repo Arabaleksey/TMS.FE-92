@@ -12,7 +12,7 @@ export const StyledMenu = styled.menu`
   position: fixed;
   left: 0;
   bottom: 0;
-  height: calc(100% - 46px);
+  height: calc(100% - 40px);
   width: 200px;
   background-color: white;
   margin-block-start: 0;

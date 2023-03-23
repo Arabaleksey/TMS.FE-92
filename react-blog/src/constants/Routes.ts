@@ -6,4 +6,5 @@ export enum Routes {
   ALL_POSTS = "/posts",
   POST = "/posts/:id",
   VERIFICATION_EMAIL = "/activate/:uid/:token",
+  ADD_POST = "/add",
 }

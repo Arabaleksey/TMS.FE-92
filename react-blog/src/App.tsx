@@ -10,7 +10,7 @@ import "./App.css";
 import { ErrorBoundary } from "./components/ErrorBoundries";
 import { Routes } from "./constants/Routes";
 import { Footer, Header } from "./layouts";
-import { AllPosts, Home, Post, Verification } from "./pages";
+import { AddPost, AllPosts, Home, Post, Verification } from "./pages";
 import { Auth } from "./pages/common";
 import { UITheme } from "./store/uiSlice";
 import { uiThemeSelector } from "./store/uiSlice/selectors";
@@ -31,6 +31,12 @@ const StyledBackground = styled.div`
   flex-direction: column;
   justify-content: space-between;
   transition: background-color 0.2s linear;
+`;
+
+const StyledContent = styled.div`
+  padding: 8px 0;
+  flex: 1;
+  display: flex;
 `;
 
 interface IRoute {
@@ -60,6 +66,13 @@ const routes: IRoute[] = [
       exact: true,
     },
     component: <Auth formState="signup" />,
+  },
+  {
+    path: Routes.ADD_POST,
+    routeProps: {
+      exact: true,
+    },
+    component: <AddPost />,
   },
   {
     path: Routes.CONFIRMATION_EMAIL,
@@ -120,17 +133,19 @@ const App = () => {
           <Router>
             <Header />
             <ToastContainer theme={theme} />
-            <Switch>
-              {routes.map((route, routeIndex) => (
-                <Route
-                  path={route.path}
-                  {...route.routeProps}
-                  key={`${route.path}-${routeIndex}`}
-                >
-                  {route.component}
-                </Route>
-              ))}
-            </Switch>
+            <StyledContent>
+              <Switch>
+                {routes.map((route, routeIndex) => (
+                  <Route
+                    path={route.path}
+                    {...route.routeProps}
+                    key={`${route.path}-${routeIndex}`}
+                  >
+                    {route.component}
+                  </Route>
+                ))}
+              </Switch>
+            </StyledContent>
             <Footer />
           </Router>
         </StyledBackground>

@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const StyledPersona = styled.div`
   width: "max-content";
   max-width: 300px;
-  padding: 0 6px;
+  padding: 8px 6px;
   background-color: ${(props) => props.theme.blue};
   display: flex;
   justify-content: center;

@@ -40,6 +40,12 @@ const navLinks: INavLink[] = [
     activeClassName,
     label: "All Posts",
   },
+  {
+    to: Routes.ADD_POST,
+    exact: true,
+    activeClassName,
+    label: "Add post",
+  },
 ];
 
 interface IProps {
