@@ -90,6 +90,11 @@
     ```
     app.use(express.static(path.resolve(__dirname, "..", "public")));
     ``` 
+12. To work with request body need to add express.json():
+    ```
+    app.use(express.json());
+
+    ```
 
  
     
