@@ -1,11 +1,13 @@
 # Express Node.js Typescript with MongoDB
     
 1.  Initialize a new Node.js project by running the following command in the terminal:
+
    ```
    npm init
    ``` 
     
 2.  Install the required dependencies by running the following command in the terminal:
+
     ```
     npm install express mongoose @types/express @types/mongoose @types/node ts-node typescript
     ``` 
@@ -70,24 +72,24 @@
     This will allow you to start the server using `npm start`, run the server in development mode using `npm run dev`, and build the TypeScript files to JavaScript using `npm run build`.
     
 7.  In the terminal, run `npm run dev` to start the server in development mode.
-8. To setup and use env files need to install additional dependency
-```
-npm install dotenv
-```
-9. Modify app.ts file by adding additional command
-```
-require("dotenv").config();
+8. To setup and use env files need to install additional dependency:
+    ```
+    npm install dotenv
+    ```
+9. Modify app.ts file by adding additional command:
+    ```
+    require("dotenv").config();
 
-mongoose
-.connect(process.env.MONGODB_URL)
-.then(() =>  console.log("MongoDB connected"))
-.catch((err) =>  console.log(err));
-``` 
-10. Create a .env file and store connection string of MongoDB there
-11. Create public directory and make it static by below commands
-```
-app.use(express.static(path.resolve(__dirname, "..", "public")));
-``` 
+    mongoose
+    .connect(process.env.MONGODB_URL)
+    .then(() =>  console.log("MongoDB connected"))
+    .catch((err) =>  console.log(err));
+    ``` 
+10. Create a .env file and store connection string of MongoDB there:
+11. Create public directory and make it static by below commands:
+    ```
+    app.use(express.static(path.resolve(__dirname, "..", "public")));
+    ``` 
 
  
     
